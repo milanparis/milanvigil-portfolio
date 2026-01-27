@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engineering Portfolio | Milan Paris Vigil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 font-sans text-gray-800">
+
+  <!-- ================= Header ================= -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Milan P Vigil | Engineering Portfolio</h1>
+      <div class="flex gap-6 items-center">
+        <a href="#about" class="hover:text-blue-600">About</a>
+        <a href="#projects" class="hover:text-blue-600">Projects</a>
+        <a href="resume.pdf" download class="bg-blue-600 text-white px-4 py-2 rounded-2xl shadow hover:scale-105 transition">Download Resume</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= About Section ================= -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-20">
+    <div class="bg-white rounded-2xl shadow-xl p-10 grid md:grid-cols-3 gap-10 items-center">
+      <div class="flex justify-center">
+        <!-- If you want the About photo larger, adjust w/h below -->
+        <img src="images/profile.jpg" alt="Profile" class="w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl shadow-lg"/>
+      </div>
+      <div class="md:col-span-2">
+        <h2 class="text-3xl font-bold mb-6">About Me</h2>
+        <p class="text-lg leading-relaxed">I am a senior pursuing a Bachelor’s degree in Mechanical Engineering at New York Universities’s Tandon School of Engineering with a deep interest in design and analysis through the use of computer-aided design (CAD) software. Throughout my academic career, I have consistently taken on leadership roles related to CAD and design across multiple projects, driven by a deep curiosity for engineering design and problem-solving.<br><br>My experience has been shaped by multiple engineering design courses, which provided me with a strong technical foundation and hands-on experience using a variety of industry-standard design and analysis tools. These opportunities have allowed me to contribute meaningfully to project development, from concept generation to detailed modeling and evaluation.<br><br>My career goal is to contribute to the newly named Department of War (DOW), formally the Department of Defense (DOD) within the Federal Government as part of a multidisciplinary design team, supporting the development of critical engineering solutions that serve the United States of America.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Projects Section ================= -->
+  <section id="projects" class="bg-gray-100 py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
+
+      <!-- Tabs -->
+      <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <button class="tab-btn bg-blue-600 text-white px-6 py-3 rounded-2xl shadow" onclick="showProject(0)">Thermo-Fluid Module</button>
+        <button class="tab-btn bg-white px-6 py-3 rounded-2xl shadow" onclick="showProject(1)">Fighter Jet</button>
+        <button class="tab-btn bg-white px-6 py-3 rounded-2xl shadow" onclick="showProject(2)">Language Translating Spectacles</button>
+      </div>
+
+      <!-- ================= Project 1 ================= -->
+      <div class="project bg-white rounded-2xl shadow-xl p-10 space-y-10">
+        <div class="space-y-4">
+          <h3 class="text-5xl font-serif font-semibold">Modular Thermo-Fluid Cooling System for Subway Stations</h3>
+          <p class="text-gray-600 font-medium">Senior Design Project | Thermo-Fluids &amp; Systems Engineering (In Progress — Completion: May 2026)</p>
+        </div>
+
+        <p class="text-lg leading-relaxed whitespace-pre-line">
+MetroDegree is an ongoing senior design project focused on developing a modular thermo-fluid cooling system to reduce extreme heat conditions in underground subway stations without requiring major infrastructure modifications. The project addresses increasing thermal challenges in aging transit systems, particularly in New York City, where platform temperatures can exceed 100°F during peak summer conditions.
+
+The system, referred to as the Thermo-Fluid Module (TFM), is inspired by thermosyphon principles and is designed to absorb, store, and dissipate thermal energy using water as a safe working fluid. Early design iterations explored fully passive solutions; however, analytical evaluation identified critical limitations related to gravity dependence, heat recirculation, and saturation under sustained thermal loads. As a result, the project has advanced toward a hybrid passive–active cooling architecture to improve performance during peak conditions while maintaining low overall energy consumption.
+
+My primary role on this project is engineering analysis and design ownership. I am responsible for performing the hand calculations that define system feasibility and guide design decisions, including control-volume energy balances, convection modeling, fin efficiency calculations, and thermal load estimation. These calculations established the station heat removal requirement (~46 kW under peak conditions) and informed key architectural decisions regarding fin geometry, material selection, and the need for active thermal assistance. Several iterations and designs have been created, with a few of them shown below.
+
+In addition to analysis, I lead the CAD modeling and spatial design of the system. I have designed and modeled a subway platform (14th St &amp; 3rd Avenue Station) environment in CAD to enable realistic testing, spatial verification, and future simulation work. This includes modeling platform geometry, mounting constraints, and available installation zones, ensuring that the TFM design remains compatible with real-world station architecture. The TFM components themselves—including fin arrays, module housings, and mounting interfaces—are also being developed as parametric CAD models to support iterative refinement.
+
+I am also deeply involved in thermal and structural analysis, using both analytical methods and planned computational tools to evaluate airflow behavior, heat transfer performance, and structural stability. Comparative studies between solid and hollow fin configurations, as well as material trade studies based on thermal conductivity, strength-to-weight ratio, and manufacturability, are guiding the current design direction. To confirm material selection, ANSYS thermal analysis was done on one design iteration to determine the heat flux through the design, as well as through each fin, that aided in the material selection of aluminum for the fins. Some initial test results on the TFM with 9 fins are shown below — although this design was determined to be less effective comparative to the hollow fin design, the simplistic design allowed for a larger mesh element size and easier analysis.
+
+The project is currently in the refinement and validation phase, with upcoming work including detailed CFD and transient thermal simulations, integration of the active cooling element, and fabrication of a scaled proof-of-concept prototype within Tandon’s Engineering MakerSpace constraints. Final system validation and design completion are scheduled for May 2026, prior to graduation.
+
+This project highlights my strengths in first-principles engineering analysis, large-scale CAD modeling, thermo-fluids design, and systems-level problem solving, applied to a real-world infrastructure challenge with significant societal impact.
+        </p>
+
+        <p class="text-sm text-gray-600 font-medium">Click on images for full view.</p>
+        <!-- Gallery (2x2) -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <img src="images/thermo1.jpg" class="rounded-2xl shadow-md w-full h-80 object-contain bg-white p-2 cursor-pointer" alt="Thermo-Fluid image 1" />
+          <img src="images/thermo2.jpg" class="rounded-2xl shadow-md w-full h-80 object-contain bg-white p-2 cursor-pointer" alt="Thermo-Fluid image 2" />
+          <img src="images/thermo3.jpg" class="rounded-2xl shadow-md w-full h-80 object-contain bg-white p-2 cursor-pointer" alt="Thermo-Fluid image 3" />
+          <img src="images/thermo4.jpg" class="rounded-2xl shadow-md w-full h-80 object-contain bg-white p-2 cursor-pointer" alt="Thermo-Fluid image 4" />
+        </div>
+
+        <!-- Key Skills (BOTTOM) -->
+        <div>
+          <h4 class="text-2xl font-semibold mb-4">Key Skills</h4>
+          <ul class="list-disc list-inside text-lg space-y-2">
+            <li>Thermo-fluids &amp; heat transfer analysis</li>
+            <li>Control-volume modeling and hand calculations</li>
+            <li>System-level engineering design</li>
+            <li>Material selection &amp; trade studies</li>
+            <li>CFD &amp; thermal simulation</li>
+            <li>Engineering documentation &amp; technical reporting</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ================= Project 2 ================= -->
+      <div class="project hidden bg-white rounded-2xl shadow-xl p-10 space-y-10">
+        <div class="space-y-4">
+          <h3 class="text-5xl font-serif font-semibold">Fighter Jet Concept Design &amp; Analysis</h3>
+          <p class="text-gray-600 font-medium">Advanced CAD Course Final Project | Junior Year | SolidWorks</p>
+        </div>
+
+        <p class="text-lg leading-relaxed whitespace-pre-line">
+This project involved the complete conceptual design, modeling, and analysis of a modern fighter jet, developed as the final project for an advanced CAD course. Driven by my strong interest in aerospace engineering and defense-related applications, I chose to design a military aircraft that emphasized realistic geometry, modular assembly, and performance-driven engineering analysis.
+
+I independently designed the aircraft as a fully parametric, multi-part system using SolidWorks, modeling each major subsystem as a separate component. These included the fuselage, aircraft body, cockpit interior, wings, engine, and both horizontal and vertical stabilizers. All components were later assembled using advanced mates and constraints to accurately represent real-world aircraft integration. Prior to solid modeling, engineering sketches were created for each individual part as well as for the full assembly, establishing design intent, proportions, and critical reference geometry. A 3D sketch was also developed to define key aerodynamic profiles, spatial relationships, and reference planes, serving as the structural backbone for the final models.
+
+The vertical and horizontal stabilizers were designed using SolidWorks sheet metal tools, incorporating realistic bend radii, thicknesses, and manufacturability considerations. Throughout the design process, emphasis was placed on geometric continuity, structural integrity, and modular assembly logic.
+
+To evaluate performance, I conducted static structural analysis and fluid flow simulations within SolidWorks. Stress and strain analyses were performed on the wings to assess aerodynamic loading effects, while fluid analysis was used to examine airflow behavior and verify thrust-related performance considerations. Simulation results informed iterative design refinements to improve both structural reliability and aerodynamic performance.
+
+Material selection and visual realism played a significant role in the final deliverable. Appropriate materials were assigned to each component to generate realistic mass properties, and detailed appearances were applied to enhance both technical clarity and professional presentation.
+
+This project strengthened my expertise in advanced CAD workflows, engineering drawings, 3D sketch-driven design, simulation-based analysis, and aerospace-focused system integration, and directly reflects my long-term interest in defense and Department of War engineering initiatives.
+        </p>
+
+        <p class="text-sm text-gray-600 font-medium">Click on images for full view.</p>
+        <!-- Gallery (2x2) -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <img src="images/fighter1.jpg" class="rounded-2xl shadow-md w-full h-80 object-contain bg-white p-2 cursor-pointer" alt="Fighter Jet image 1" />
+          <img src="images/fighter2.jpg" class="rounded-2xl shadow-md w-full h-80 object-contain bg-white p-2 cursor-pointer" alt="Fighter Jet image 2" />
+          <img src="images/fighter3.jpg" class="rounded-2xl shadow-md w-full h-80 object-contain bg-white p-2 cursor-pointer" alt="Fighter Jet image 3" />
+          <img src="images/fighter4.jpg" class="rounded-2xl shadow-md w-full h-80 object-contain bg-white p-2 cursor-pointer" alt="Fighter Jet image 4" />
+        </div>
+
+        <!-- Key Skills (BOTTOM) -->
+        <div>
+          <h4 class="text-2xl font-semibold mb-4">Key Skills</h4>
+          <ul class="list-disc list-inside text-lg space-y-2">
+            <li>Advanced multi-part modeling and assembly in SolidWorks</li>
+            <li>Sheet metal design for aerospace components</li>
+            <li>Static structural and fluid flow analysis</li>
+            <li>Simulation-driven design iteration</li>
+            <li>Aerospace and defense-oriented conceptual design</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ================= Project 3 ================= -->
+      <div class="project hidden bg-white rounded-2xl shadow-xl p-10 space-y-10">
+        <div class="space-y-4">
+          <h3 class="text-5xl font-serif font-semibold">Opto-Lingo Language Translating Spectacles</h3>
+          <p class="text-gray-600 font-medium">Semester-Long Design Project | Freshman Year</p>
+        </div>
+
+        <p class="text-lg leading-relaxed whitespace-pre-line">
+Opto-Lingo is a wearable assistive technology prototype designed to provide real-time language translation without reliance on internet connectivity. The system integrates embedded hardware, custom mechanical design, and Python-based software to capture spoken language, process speech recognition, perform translation, and display translated output through a connected web interface.
+
+I served as the lead for both mechanical design and software development, taking full ownership of the CAD modeling, prototyping, and core programming logic. I designed the complete glasses frame and temples using Autodesk Fusion 360, including a custom internal housing to securely accommodate embedded components without compromising comfort, weight, or aesthetics. The final design was iteratively refined and 3D printed, with adjustments made to structural thickness, component fit, and overall durability.
+
+On the software side, I developed the entire Python-based control and translation pipeline on a Raspberry Pi Zero. This included configuring GPIO inputs for user interaction, implementing real-time audio capture using PyAudio, processing speech recognition with Vosk and KaldiRecognizer, converting and handling data through JSON, and executing language translation via the Google Translate API. I also implemented logic to upload translated text to a web interface for real-time display. This work required integrating multiple libraries, managing hardware-software communication, and debugging both logical and hardware-level issues.
+
+This project strengthened my skills in mechanical design, embedded systems, Python programming, and cross-disciplinary engineering integration, while reinforcing my ability to independently lead technically complex components of a team-based engineering project.
+        </p>
+
+        <p class="text-sm text-gray-600 font-medium">Click on images for full view.</p>
+        <!-- Gallery (2x2) -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <img src="images/glasses1.jpg" class="rounded-2xl shadow-md w-full h-80 object-contain bg-white p-2 cursor-pointer" alt="Spectacles image 1" />
+          <img src="images/glasses2.jpg" class="rounded-2xl shadow-md w-full h-80 object-contain bg-white p-2 cursor-pointer" alt="Spectacles image 2" />
+          <img src="images/glasses3.jpg" class="rounded-2xl shadow-md w-full h-80 object-contain bg-white p-2 cursor-pointer" alt="Spectacles image 3" />
+          <img src="images/glasses4.jpg" class="rounded-2xl shadow-md w-full h-80 object-contain bg-white p-2 cursor-pointer" alt="Spectacles image 4" />
+        </div>
+
+        <!-- Key Skills (BOTTOM) -->
+        <div>
+          <h4 class="text-2xl font-semibold mb-4">Key Skills</h4>
+          <ul class="list-disc list-inside text-lg space-y-2">
+            <li>Led all CAD design and 3D prototyping of wearable hardware</li>
+            <li>Developed and integrated full Python translation pipeline</li>
+            <li>Implemented Raspberry Pi GPIO control and audio processing</li>
+            <li>Designed internal component housing for embedded electronics</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= Footer ================= -->
+  <footer class="bg-white border-t py-10 mt-16">
+    <div class="max-w-6xl mx-auto text-center space-y-2">
+      <h3 class="font-semibold text-lg">Contact Information</h3>
+      <p>Email: mpv3786@nyu.edu</p>
+      <p>Phone: 505-204-0580</p>
+      <p>Address: 323 W 30th, NY, NY 10001</p>
+      <p class="text-sm text-gray-500 mt-4">© <span id="year"></span> Milan. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ================= Image Lightbox ================= -->
+  <div id="imgModal" class="fixed inset-0 hidden items-center justify-center bg-black/80 p-4 z-[999]">
+    <button id="modalClose" class="absolute top-5 right-5 bg-white/90 hover:bg-white text-gray-900 px-4 py-2 rounded-xl shadow">Close</button>
+    <img id="modalImg" src="" alt="Full size" class="max-w-[95vw] max-h-[90vh] object-contain rounded-xl shadow-2xl bg-white" />
+  </div>
+
+  <script>
+    // Tabs
+    function showProject(index) {
+      const projects = document.querySelectorAll('.project');
+      const buttons = document.querySelectorAll('.tab-btn');
+      projects.forEach((p, i) => p.classList.toggle('hidden', i !== index));
+      buttons.forEach((b, i) => {
+        b.classList.toggle('bg-blue-600', i === index);
+        b.classList.toggle('text-white', i === index);
+        b.classList.toggle('bg-white', i !== index);
+      });
+    }
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalClose = document.getElementById('modalClose');
+
+    function openModal(src) {
+      modalImg.src = src;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      modalImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    // Attach click handlers to ALL project images
+    document.querySelectorAll('#projects .project img').forEach((img) => {
+      img.addEventListener('click', () => openModal(img.getAttribute('src')));
+    });
+
+    modalClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeModal();
+    });
+
+    // Click backdrop closes
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // ESC closes
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+    });
+  </script>
+
+</body>
+</html>
