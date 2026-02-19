@@ -34,6 +34,48 @@
       </div>
     </div>
   </section>
+  <!-- ================= Slideshow Section ================= -->
+  <section id="slideshow" class="max-w-6xl mx-auto px-6 pb-10">
+    <div class="bg-white rounded-2xl shadow-xl p-10">
+      <div class="flex items-end justify-between gap-4 flex-wrap">
+        <div>
+          <h2 class="text-3xl font-bold">Gallery</h2>
+          <p class="text-gray-600 mt-2">A quick highlight reel — updates automatically every few seconds.</p>
+        </div>
+
+        <div class="flex gap-3">
+          <button id="slidePrev"
+            class="bg-white border px-4 py-2 rounded-2xl shadow hover:scale-105 transition">
+            Prev
+          </button>
+          <button id="slideNext"
+            class="bg-blue-600 text-white px-4 py-2 rounded-2xl shadow hover:scale-105 transition">
+            Next
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-8 relative overflow-hidden rounded-2xl shadow-md bg-gray-50">
+        <!-- Main image -->
+        <img id="slideshowImg"
+          src="images/slide1.jpg"
+          alt="Slideshow image"
+          class="w-full h-[420px] object-contain bg-white p-4 transition-opacity duration-500"
+        />
+
+        <!-- Optional caption -->
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white px-5 py-3">
+          <p id="slideshowCaption" class="text-sm md:text-base">Slide 1</p>
+        </div>
+      </div>
+
+      <!-- Dots -->
+      <div id="slideshowDots" class="flex flex-wrap gap-2 justify-center mt-6"></div>
+
+      <!-- Small helper text -->
+      <p class="text-sm text-gray-500 mt-4 text-center">Tip: Hover to pause. Use Next/Prev to navigate.</p>
+    </div>
+  </section>
 
   <!-- ================= Projects Section ================= -->
   <section id="projects" class="bg-gray-100 py-20 px-6">
@@ -193,6 +235,148 @@ This project strengthened my skills in mechanical design, embedded systems, Pyth
     <button id="modalClose" class="absolute top-5 right-5 bg-white/90 hover:bg-white text-gray-900 px-4 py-2 rounded-xl shadow">Close</button>
     <img id="modalImg" src="" alt="Full size" class="max-w-[95vw] max-h-[90vh] object-contain rounded-xl shadow-2xl bg-white" />
   </div>
+  <script>
+    // Tabs
+    function showProject(index) {
+      const projects = document.querySelectorAll('.project');
+      const buttons = document.querySelectorAll('.tab-btn');
+      projects.forEach((p, i) => p.classList.toggle('hidden', i !== index));
+      buttons.forEach((b, i) => {
+        b.classList.toggle('bg-blue-600', i === index);
+        b.classList.toggle('text-white', i === index);
+        b.classList.toggle('bg-white', i !== index);
+      });
+    }
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalClose = document.getElementById('modalClose');
+
+    function openModal(src) {
+      modalImg.src = src;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      modalImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    // Attach click handlers to ALL project images
+    document.querySelectorAll('#projects .project img').forEach((img) => {
+      img.addEventListener('click', () => openModal(img.getAttribute('src')));
+    });
+
+    modalClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeModal();
+    });
+
+    // Click backdrop closes
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // ESC closes
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+    });
+
+    /* ================= Slideshow Logic ================= */
+    const slideshowData = [
+      { src: "images/slide1.jpg", caption: "Slide 1" },
+      { src: "images/slide2.jpg", caption: "Slide 2" },
+      { src: "images/slide3.jpg", caption: "Slide 3" },
+      { src: "images/slide4.jpg", caption: "Slide 4" },
+      { src: "images/slide5.jpg", caption: "Slide 5" },
+      { src: "images/slide6.jpg", caption: "Slide 6" },
+      // Add more here if you want:
+      // { src: "images/slide7.jpg", caption: "Slide 7" },
+    ];
+
+    const slideshowImg = document.getElementById("slideshowImg");
+    const slideshowCaption = document.getElementById("slideshowCaption");
+    const slideshowDots = document.getElementById("slideshowDots");
+    const slidePrev = document.getElementById("slidePrev");
+    const slideNext = document.getElementById("slideNext");
+
+    let slideIndex = 0;
+    let slideTimer = null;
+    const slideIntervalMs = 3500;
+
+    function renderDots() {
+      if (!slideshowDots) return;
+      slideshowDots.innerHTML = "";
+      slideshowData.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.className =
+          "w-3 h-3 rounded-full transition " +
+          (i === slideIndex ? "bg-blue-600" : "bg-gray-300 hover:bg-gray-400");
+        dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
+        dot.addEventListener("click", () => goToSlide(i, true));
+        slideshowDots.appendChild(dot);
+      });
+    }
+
+    function goToSlide(i, resetTimer = false) {
+      if (!slideshowImg || !slideshowCaption) return;
+
+      slideIndex = (i + slideshowData.length) % slideshowData.length;
+
+      // Fade effect
+      slideshowImg.style.opacity = "0";
+      setTimeout(() => {
+        slideshowImg.src = slideshowData[slideIndex].src;
+        slideshowCaption.textContent = slideshowData[slideIndex].caption || `Slide ${slideIndex + 1}`;
+        slideshowImg.style.opacity = "1";
+        renderDots();
+      }, 200);
+
+      if (resetTimer) startSlideshow();
+    }
+
+    function nextSlide(resetTimer = false) {
+      goToSlide(slideIndex + 1, resetTimer);
+    }
+
+    function prevSlide(resetTimer = false) {
+      goToSlide(slideIndex - 1, resetTimer);
+    }
+
+    function startSlideshow() {
+      stopSlideshow();
+      slideTimer = setInterval(() => nextSlide(false), slideIntervalMs);
+    }
+
+    function stopSlideshow() {
+      if (slideTimer) clearInterval(slideTimer);
+      slideTimer = null;
+    }
+
+    // Wire up controls (only if the section exists)
+    if (slideshowImg && slideshowCaption && slideshowDots && slidePrev && slideNext) {
+      renderDots();
+      startSlideshow();
+
+      slideNext.addEventListener("click", () => nextSlide(true));
+      slidePrev.addEventListener("click", () => prevSlide(true));
+
+      // Pause on hover
+      const slideshowSection = document.getElementById("slideshow");
+      if (slideshowSection) {
+        slideshowSection.addEventListener("mouseenter", stopSlideshow);
+        slideshowSection.addEventListener("mouseleave", startSlideshow);
+      }
+    }
+  </script>
 
   <script>
     // Tabs
